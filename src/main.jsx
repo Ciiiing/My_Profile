@@ -540,7 +540,7 @@ const internships = [
     company: '北京新意互动数字技术有限公司',
     role: '客户执行实习生',
     hoverText: '(CIG)',
-    image: asset('flowing-water.png'),
+    image: asset('flowing-water.webp'),
     detail: {
       zh: {
         role: '客户执行实习生',
@@ -566,7 +566,7 @@ const internships = [
     company: '北京炬野文化传播发展有限公司',
     role: '视觉设计',
     hoverText: '(Juye)',
-    image: asset('flowing-water.png'),
+    image: asset('flowing-water.webp'),
     detail: {
       zh: { role: '视觉设计', sections: [['视觉设计', '承接公司广告、直播等视觉需求，独立完成海报、宣传册、新媒体图文、数字广告、活动文创等平面设计及图片、视频摄制工作，适配线上线下多渠道宣发。']] },
       en: { role: 'Visual Designer', sections: [['Visual Design', 'Handled visual requests for advertising and live productions, independently delivering posters, brochures, social graphics, digital ads, event merchandise, photography, and video for online and offline communication.']] },
@@ -578,7 +578,7 @@ const internships = [
     company: '中国青年网',
     role: '新媒体编辑',
     hoverText: '(Youth)',
-    image: asset('flowing-water.png'),
+    image: asset('flowing-water.webp'),
     detail: {
       zh: {
         role: '新媒体编辑',
@@ -602,7 +602,7 @@ const internships = [
     company: '江西臻美文化传媒有限公司',
     role: '新媒体运营',
     hoverText: '(Zhenmei)',
-    image: asset('flowing-water.png'),
+    image: asset('flowing-water.webp'),
     detail: {
       zh: {
         role: '新媒体运营',
@@ -761,10 +761,11 @@ function App() {
 
   const localizedVideoWorks = useMemo(() => videoWorks.map((item, index) => ({
     ...item,
+    modernImage: item.image.replace(/\.(png|jpe?g)$/i, '.webp'),
     text: t(item.text),
     description: language === 'en' ? videoDescriptionsEnglish[index] : item.description,
   })), [language])
-  const localizedGraphicWorks = useMemo(() => graphicWorks.map((item) => ({ ...item, title: t(item.title) })), [language])
+  const localizedGraphicWorks = useMemo(() => graphicWorks.map((item) => ({ ...item, modernImage: item.image.replace(/\.(png|jpe?g)$/i, '.webp'), title: t(item.title) })), [language])
   const localizedBookWorks = useMemo(() => bookWorks.map((item) => ({ ...item, text: t(item.text) })), [language])
 
   const closeVideo = useCallback(() => {
@@ -1026,7 +1027,7 @@ function App() {
           <SectionPrelude index={1} title="SELECTED" accent="PROJECTS" label={t('精选项目')} summary={t('四个项目，四种推进路径。')} total={4} />
           <div className="project-list">
             <ProjectAccordion
-              items={projectGalleryItems.map((item) => ({ ...item, label: t(item.label) }))}
+              items={projectGalleryItems.map((item) => ({ ...item, modernImage: item.image.replace(/\.(png|jpe?g)$/i, '.webp'), label: t(item.label) }))}
               onSelect={(project, sourceElement) => setSelectedProject({ ...project, openingRect: copyRect(sourceElement) })}
             />
           </div>
@@ -1088,7 +1089,7 @@ function App() {
         <div className="video-detail-overlay" role="presentation" onClick={closeVideo}>
           <article ref={videoModalRef} className="video-detail-modal" role="dialog" aria-modal="true" aria-label={selectedVideo.text} onClick={(event) => event.stopPropagation()}>
             <header><span>{selectedVideo.text}</span><button type="button" onClick={closeVideo} aria-label={language === 'en' ? 'Close work' : '关闭作品'}><X size={20} /></button></header>
-            <div className="video-detail-frame"><img src={selectedVideo.image} alt={selectedVideo.text} /></div>
+            <div className="video-detail-frame"><picture>{selectedVideo.modernImage && <source srcSet={selectedVideo.modernImage} type="image/webp" />}<img src={selectedVideo.image} alt={selectedVideo.text} /></picture></div>
             <div className="video-detail-copy"><p>{selectedVideo.description}</p></div>
             <div className="video-detail-actions">{selectedVideo.bilibiliUrl && <a href={selectedVideo.bilibiliUrl} target="_blank" rel="noreferrer">{language === 'en' ? 'Watch on Bilibili' : '在哔哩哔哩观看'} <ArrowUpRight size={14} /></a>}<a href={`https://youtu.be/${selectedVideo.youtubeId}`} target="_blank" rel="noreferrer">{language === 'en' ? 'Watch on YouTube' : '在 YouTube 上观看'} <ArrowUpRight size={14} /></a></div>
           </article>

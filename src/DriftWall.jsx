@@ -165,7 +165,10 @@ export default function DriftWall({
                     onMouseEnter={() => activate(id, columnIndex)}
                     onMouseLeave={release}
                   >
-                    <img data-gallery-image src={item.image} alt={item.title || ''} loading="lazy" decoding="async" draggable="false" />
+                    <picture>
+                      {item.modernImage && <source srcSet={item.modernImage} type="image/webp" />}
+                      <img data-gallery-image src={item.image} alt={item.title || ''} loading="lazy" decoding="async" draggable="false" />
+                    </picture>
                     <span className="drift-wall__shade" aria-hidden="true" />
                   </article>
                 )

@@ -134,7 +134,7 @@ export default function ProjectDetailModal({ project, language = 'zh', onClose }
             <section className="project-detail-panorama-layout" aria-label="Brochure pages">
               {panoramaPages.map((src, index) => (
                 <div className={`project-detail-panorama-page project-detail-panorama-page-${index + 1}`} key={src}>
-                  <div className="project-detail-panorama-frame" ref={(element) => { panoramaRefs.current[index] = element }}><img src={src} alt="" loading={index === 0 ? 'eager' : 'lazy'} decoding="async" /></div>
+                  <div className="project-detail-panorama-frame" ref={(element) => { panoramaRefs.current[index] = element }}><picture><source srcSet={src.replace(/\.png$/i, '.webp')} type="image/webp" /><img src={src} alt="" loading={index === 0 ? 'eager' : 'lazy'} decoding="async" /></picture></div>
                 </div>
               ))}
             </section>
