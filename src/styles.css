@@ -247,7 +247,7 @@ img { display: block; max-width: 100%; }
 .video-detail-actions a { display: inline-flex; align-items: center; gap: 7px; color: var(--yellow); font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .06em; }
 .video-detail-actions a:hover { color: var(--paper); }
 .depth-carousel__card picture, .drift-wall__tile picture, .project-accordion-media picture, .video-detail-frame picture, .project-detail-panorama-frame picture { display: contents; }
-.project-detail-modal { display: flex; width: min(540px, 36vw); height: 72svh; min-height: 460px; flex-direction: column; overflow: hidden; border: 1px solid rgba(242,245,245,.2); border-radius: 8px; background: var(--card-surface); box-shadow: 0 32px 90px rgba(0,0,0,.58); }
+.project-detail-modal { display: flex; width: min(810px, 54vw); height: 72svh; min-height: 460px; flex-direction: column; overflow: hidden; border: 1px solid rgba(242,245,245,.2); border-radius: 8px; background: var(--card-surface); box-shadow: 0 32px 90px rgba(0,0,0,.58); }
 @media (prefers-reduced-motion: no-preference) {
   .video-detail-modal, .project-detail-modal { will-change: transform, opacity; }
 }
@@ -291,7 +291,7 @@ img { display: block; max-width: 100%; }
 .project-flipbook-count { position: absolute; z-index: 3; right: 18px; bottom: 16px; color: var(--paper); font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .1em; text-shadow: 0 1px 8px rgba(0,0,0,.74); }
 .project-detail-cover { width: 100%; margin: 0; overflow: hidden; border-radius: 0; background: #030711; }
 .project-detail-cover img { display: block; width: 100%; height: auto; }
-.project-detail-split { display: grid; grid-template-columns: 1fr; grid-template-rows: minmax(0, 42%) minmax(0, 1fr); height: 100%; min-height: 0; align-items: stretch; background: #071124; }
+.project-detail-split { display: grid; grid-template-columns: 1fr 1fr; height: 100%; min-height: 0; align-items: stretch; background: #071124; }
 .project-detail-split-media { display: flex; min-height: 0; align-items: center; justify-content: center; overflow: hidden; background: #dfe4dd; }
 .project-detail-split-media img { display: block; width: auto; max-width: 100%; height: auto; max-height: 100%; object-fit: contain; object-position: center; }
 .project-detail-split-copy { display: flex; min-width: 0; min-height: 0; flex-direction: column; justify-content: flex-start; gap: 18px; overflow-y: auto; padding: 48px 42px 56px; }
