@@ -943,7 +943,7 @@ function App() {
   return (
     <div className={`site-shell lang-${language}`} style={{ '--internship-card-bg': `url("${asset('internship-card-bg.png')}")` }}>
       <div className="background-scene" aria-hidden="true">
-        <RippleVideo src={asset('hero-fish.mp4')} poster={asset('film-cover.png')} />
+        <RippleVideo src={asset('hero-fish.mp4')} />
         <div className="background-video-tint" />
       </div>
       <header className="site-nav">
