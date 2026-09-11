@@ -246,6 +246,7 @@ img { display: block; max-width: 100%; }
 .video-detail-actions { display: flex; justify-content: flex-end; gap: 26px; padding: 14px 18px; }
 .video-detail-actions a { display: inline-flex; align-items: center; gap: 7px; color: var(--yellow); font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .06em; }
 .video-detail-actions a:hover { color: var(--paper); }
+.depth-carousel__card picture, .drift-wall__tile picture, .project-accordion-media picture, .video-detail-frame picture { display: contents; }
 .project-detail-modal { display: flex; width: min(540px, 36vw); height: 72svh; min-height: 460px; flex-direction: column; overflow: hidden; border: 1px solid rgba(242,245,245,.2); border-radius: 8px; background: var(--card-surface); box-shadow: 0 32px 90px rgba(0,0,0,.58); }
 @media (prefers-reduced-motion: no-preference) {
   .video-detail-modal, .project-detail-modal { will-change: transform, opacity; }
